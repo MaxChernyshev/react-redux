@@ -5,13 +5,11 @@ const BookList = () => {
 
     const books = useSelector((state) => state.books)
 
-    console.log(books)
+    // console.log(books)
 
     return (
         <div className="app-block book-list">
             <h2>Book List Form</h2>
-
-
             {
                 books.length === 0
                     ?
@@ -20,15 +18,14 @@ const BookList = () => {
                     (
                         <ul>
                             {books.map((book, i) => (
-                                <li key={i}>
+                                <li key={book.id}>
                                     <div className='book-info'>
-                                        Title: <strong>{book.title}</strong> by author: <strong>{book.author}</strong>
+                                        ID: {++i} Title: <strong>{book.title}</strong> by author: <strong>{book.author}</strong>
                                     </div>
                                 </li>
                             ))}
                         </ul>
                     )
-
             }
         </div>
     )
