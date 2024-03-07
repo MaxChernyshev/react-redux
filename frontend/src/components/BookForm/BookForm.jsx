@@ -27,23 +27,24 @@ const BookForm = () => {
     }
 
     const handleAddRandomBook = () => {
-        // const randomIndex = Math.floor(Math.random() * booksData.length)
-        // const randomBook = booksData[randomIndex]
-        // const randomBookWithId = {
-        //     ...randomBook,
-        //     id: uuidv4(),
-        // }
 
-
-        const assa = {
-            ...booksData[Math.floor(Math.random() * booksData.length)],
+        const randomIndex = Math.floor(Math.random() * booksData.length)
+        const randomBook = booksData[randomIndex]
+        const randomBookWithId = {
+            ...randomBook,
             id: uuidv4(),
         }
 
-        dispatch(addBook(assa))
-        // dispatch(addBook(randomBookWithId))
+        // Short version
 
-        // console.log(randomBookWithId)
+        // const randomBookWithId = {
+        //     ...booksData[Math.floor(Math.random() * booksData.length)],
+        //     id: uuidv4(),
+        // }
+
+        // END Short version
+
+        dispatch(addBook(randomBookWithId))
     }
 
 
