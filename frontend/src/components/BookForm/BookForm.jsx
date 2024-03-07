@@ -22,7 +22,6 @@ const BookForm = () => {
 
             setTitle('')
             setAuthor('')
-            // alert('ASSA')
         }
     }
 
