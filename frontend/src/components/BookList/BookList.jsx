@@ -1,7 +1,7 @@
 import { UseSelector, useDispatch, useSelector } from 'react-redux'
 import './BookList.css'
-import { FaRegHeart, FaTrash } from "react-icons/fa"
-import { deleteBook } from '../../redux/books/actionCreators'
+import { BsBookmarkStarFill, BsBookmarkStar, BsFillTrash3Fill } from "react-icons/bs"
+import { deleteBook, toggleFavorite } from '../../redux/books/actionCreators'
 
 const BookList = () => {
 
@@ -11,6 +11,10 @@ const BookList = () => {
 
     const handleDeleteBook = (id) => {
         dispatch(deleteBook(id))
+    }
+
+    const handleToggleFavorite = (id) => {
+        dispatch(toggleFavorite(id))
     }
 
     return (
@@ -29,12 +33,16 @@ const BookList = () => {
                                         ID: {++i} Title: <strong>{book.title}</strong> by author: <strong>{book.author}</strong>
                                     </div>
                                     <div className='book-actions'>
-                                        <button>
-                                            <FaRegHeart />
-                                        </button>
-                                        <button id='bookDelete' onClick={() => handleDeleteBook(book.id)}>
-                                            <FaTrash />
-                                        </button>
+                                        <span onClick={() => handleToggleFavorite(book.id)}>
+                                            {book.isFavorite ?
+                                                <BsBookmarkStarFill className='star-icon' />
+                                                :
+                                                <BsBookmarkStar className='star-icon' />
+                                            }
+                                        </span>
+                                        <div id='bookDelete' className='star-icon' onClick={() => handleDeleteBook(book.id)}>
+                                            <BsFillTrash3Fill />
+                                        </div>
                                     </div>
                                 </li>
                             ))}
