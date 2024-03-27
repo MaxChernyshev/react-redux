@@ -9,7 +9,7 @@ const booksReduser = (state = initialState, action) => {
             return [...state, action.payload]
 
         case a.DELETE_BOOK:
-            return state.filter((book) => book.id != action.payload)
+            return state.filter((book) => book.id !== action.payload)
 
         case a.TOGGLE_FAVORITE:
             return state.map((book) =>
